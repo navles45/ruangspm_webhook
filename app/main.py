@@ -1,8 +1,7 @@
-from fastapi import FastAPI, Request, Header
+from fastapi import FastAPI
 import stripe
 import os
 import uvicorn
-from pyairtable import Table
 from routers import revision
 
 
