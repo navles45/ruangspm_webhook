@@ -2,13 +2,17 @@ from fastapi import FastAPI
 import stripe
 import os
 import uvicorn
-from routers import revision
+from app.routers import revision
 
 
 app = FastAPI()
 app.include_router(revision.router)
 
 stripe.api_key = os.environ.get("STRIPE_API_KEY")
+
+@app.get('/')
+def welcome():
+    return {"status: 200"}
 
 # @app.post("/webhook")
 # async def webhook(request: Request, stripe_signature: str = Header(None)):
